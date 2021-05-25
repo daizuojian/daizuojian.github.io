@@ -1,0 +1,63 @@
+<html>
+<head>
+<meta charset="UTF-8">
+    <title>永续东</title>
+    <SCRIPT type="text/javascript">        
+			var offTime = (new Date()).toLocaleDateString().replace(/\//g,'-') + ' ' + '17:30';
+			var offDate= (new Date(offTime));
+            function CountDown() {
+				var now = new Date();
+				var time = now.toLocaleTimeString('chinese', { hour12: false });
+				var date = now.toLocaleDateString().replace(/\//g,'-');
+ 
+				var count = offDate - now ;
+				var dong= '';
+				if(count > 0){
+					dong = count/1000/60/2;
+					dong = dong.toFixed(2) + '东'
+				}else{
+					dong = '已下班';
+					//clearInterval(timer);
+				}
+				document.getElementById("timeDiv").innerHTML = date+"&nbsp"+time;
+				document.getElementById("dongDiv").innerHTML = dong;
+				document.querySelector(".order").innerHTML = '';
+            }
+            timer = setInterval("CountDown()", 1000);                
+    </SCRIPT>
+    <style type="text/css">
+        body{
+            text-align: center;
+        }
+        #dongDiv{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin: -70px 0 0 -200px;
+            width: 400px;
+            height: 300px;
+            //border: 1px solid red;
+        }
+		 
+
+    </style>
+</head>
+
+<body>
+    <span> </span>
+	<div id="timeDiv" style="color:gray; font-size: 50"></div>
+	
+	<iframe width="480" height="220" frameborder="0" scrolling="no" hspace="0" src="https://i.tianqi.com/?c=code&a=getcode&id=14&py=nanjing&icon=1"></iframe>
+	<div id="baidu">
+		<form action="https://www.google.com/" method="GET" target="_blank">
+			<input type="text" name="wd" size="50" />
+			<input type="submit" value="Google一下" />
+			<input type="hidden" name="ie" value="utf-8" />
+			<input type="hidden" name="tn" value="ace" />
+		</form>
+	</div>
+	<div id="dongDiv" style="color:gray; font-size: 70"></div>
+	
+</body>
+
+</html>
